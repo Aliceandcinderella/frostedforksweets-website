@@ -1,0 +1,25 @@
+# dependencies
+/node_modules/
+
+# next.js/build output
+/.next/
+/out/
+
+# environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*secret*
+
+# local archives / generated artifacts
+/archive/
+*.tsbuildinfo
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
