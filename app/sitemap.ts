@@ -19,7 +19,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `${baseUrl}/collections`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/build-your-own`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/pick-your-cake`,
+      lastModified: new Date(),
+    },
+    {
       url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/custom-orders`,
       lastModified: new Date(),
     },
     {
@@ -30,9 +46,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/meet-the-baker`,
       lastModified: new Date(),
     },
-        {
-      url: `${baseUrl}/custom-orders`,
+    {
+      url: `${baseUrl}/whats-baking`,
       lastModified: new Date(),
     },
-  ];
+  ]
 }
