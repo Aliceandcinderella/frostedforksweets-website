@@ -1,0 +1,13 @@
+[
+  {
+    "id": "welcome-to-whats-baking",
+    "title": "Welcome to What's Baking",
+    "date": "2026-07-14",
+    "summary": "This is where Frosted Fork Sweet Treats will share new photos, seasonal treats, custom cake updates, and bakery news.",
+    "body": [
+      "Check back here for fresh flavor announcements, behind-the-scenes photos, holiday specials, party platter ideas, and custom cake inspiration."
+    ],
+    "image": "/brand/logo.png",
+    "imageAlt": "Frosted Fork Sweet Treats logo"
+  }
+]
