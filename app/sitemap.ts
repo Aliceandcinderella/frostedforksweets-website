@@ -30,9 +30,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/meet-the-baker`,
       lastModified: new Date(),
     },
-    {
+        {
       url: `${baseUrl}/custom-orders`,
       lastModified: new Date(),
     },
-  ]
-
+  ];
+}
