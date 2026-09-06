@@ -1,5 +1,4 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
+import { get, put } from "@vercel/blob";
 
 export type BakingPost = {
   id: string;
@@ -11,25 +10,48 @@ export type BakingPost = {
   imageAlt?: string;
 };
 
-export const WHATS_BAKING_POSTS_PATH = path.join(
-  process.cwd(),
-  "data",
-  "whatsBakingPosts.json"
-);
+const POSTS_PATH = "whats-baking/posts.json";
 
 export async function readWhatsBakingPosts(): Promise<BakingPost[]> {
   try {
-    const raw = await fs.readFile(WHATS_BAKING_POSTS_PATH, "utf8");
-    const parsed = JSON.parse(raw) as BakingPost[];
+    const result = await get(POSTS_PATH, {
+      access: "public",
+      useCache: false,
+    });
+
+    if (!result) {
+      return [];
+    }
+
+    const response = await fetch(result.url, {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      return [];
+    }
+
+    const parsed = (await response.json()) as BakingPost[];
+
     return parsed.sort((a, b) => b.date.localeCompare(a.date));
   } catch {
     return [];
   }
 }
 
-export async function writeWhatsBakingPosts(posts: BakingPost[]): Promise<void> {
-  await fs.mkdir(path.dirname(WHATS_BAKING_POSTS_PATH), { recursive: true });
-  await fs.writeFile(WHATS_BAKING_POSTS_PATH, `${JSON.stringify(posts, null, 2)}\n`);
+export async function writeWhatsBakingPosts(
+  posts: BakingPost[]
+): Promise<void> {
+  await put(
+    POSTS_PATH,
+    JSON.stringify(posts, null, 2),
+    {
+      access: "public",
+      addRandomSuffix: false,
+      allowOverwrite: true,
+      contentType: "application/json",
+    }
+  );
 }
 
 export function slugifyTitle(title: string): string {
