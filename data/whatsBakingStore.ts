@@ -23,9 +23,7 @@ export async function readWhatsBakingPosts(): Promise<BakingPost[]> {
       return [];
     }
 
-    const response = await fetch(result.url, {
-      cache: "no-store",
-    });
+    const response = new Response(result.stream);
 
     if (!response.ok) {
       return [];
