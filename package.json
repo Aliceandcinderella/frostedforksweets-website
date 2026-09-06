@@ -1,7 +1,7 @@
 {
   "name": "frosted-fork-site",
   "version": "2.0.0",
-  "description": "Frosted Fork - Small Cakes & Sweet Treats \u00b7 Wildwood, FL",
+  "description": "Frosted Fork - Small Cakes & Sweet Treats · Wildwood, FL",
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@stripe/stripe-js": "^6.0.0",
+    "@vercel/blob": "^2.8.0",
     "@types/node": "^22.13.15",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^19.0.12",
